@@ -3,6 +3,30 @@
 //pop-up text in teoric
 $(".parent").click(function () {
   $(this).children(".child").slideToggle(300);
+  return false;
+}); //animations
+
+$(document).ready(function () {
+  $(".scrolly").click(function () {
+    $(".specialize-container").toggleClass(".specialize-container animate__animated animate__zoomIn");
+    window.location.href = '#specialize';
+    return false;
+  });
+});
+$(window).scroll(function () {
+  if ($(this).scrollTop() > 100) {
+    $(".specialize-container").addClass(".specialize-container animate__animated animate__zoomIn");
+  }
+});
+$(function () {
+  var element = $("#inf"),
+      display;
+  $(window).scroll(function () {
+    display = $(this).scrollTop() >= 1350;
+    display != element.css('opacity') && element.stop().animate({
+      'opacity': display
+    }, 750);
+  });
 }); //tests result
 
 var result;
